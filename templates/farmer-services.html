@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Machine Controllers - Sensors Tab</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+        <div class="sidebar-brand-icon rotate-n-15">
+        </div>
+        <div class="sidebar-brand-text mx-3">IoT Device Monitoring</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/farmer">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <li class="nav-item">
+        <a class="nav-link" href="/farmer-services">
+          <span>Services</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/farmer-catalog">
+          <span>Catalog</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                <img class="img-profile rounded-circle" src="../static/img/account.jpg">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+            <br>
+
+            <div class="container">
+              <h1 style="color:rgb(50, 51, 58);font-size:40px;">SENSOR CONTROL</h1>
+				
+				<h6 class="h7 text-gray-900 mb-4">Signed in as Admin</h6>
+				
+              <div class="row">
+                <div class="col-lg-8">
+				<div class="card shadow mb-4">
+					<div class="card-header py-3">
+					  <h6 class="m-0 font-weight-bold text-primary">Add Sensor</h6>
+					</div>
+					<form class="user" action="{{url_for('sensor_control')}}" method="POST">
+						
+						<div class="form-group">
+							<label class="filter-col" style="margin-right:0;" for="pref-perpage">Sensor Type</label>
+							<select id="sensType" name="sensorType"class="form-control start" required >
+            						<option name="Select" value="Select">Select a Sensor</option>
+									<option name="Temp" value="Temperature">Temperature</option>
+									<option name="Moisture" value="Moisture">Moisture</option>
+									<option name="Sprinkler" value="Sprinkler">Sprinkler</option>
+									<option name="Humidity" value="Humidity">Humidity</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control form-control-user" name="location" placeholder="Enter your location" required />
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control form-control-user" name="min_threshold" placeholder="Enter minimum thrshold value to receive email alerts" required />
+						</div>
+						<div class="form-group">
+							<input type="text" class="form-control form-control-user" name="max_threshold" placeholder="Enter maximum thrshold value to receive email alerts"required />
+						</div>
+							<div class="form-group">
+                                  <input type="submit" value="Add Sensor" class="btn btn-primary btn-user btn-block"/>
+                           </div>
+						</form>
+					</div>
+                </div>
+				 <div class="col-lg-4">
+				 <div class="card shadow mb-4">
+					<div class="card-header py-3">
+					  <h6 class="m-0 font-weight-bold text-primary">Delete Sensor</h6>
+					  <form class="user" action="{{url_for('delete_sensor')}}" method="POST">
+						<div class="form-group">
+						<input type="text" class="form-control form-control-user" name="delete_id" placeholder="Enter sensor ID to delete" required />
+						</div>
+						<div class="form-group">
+                           <input type="submit" value="Delete Sensor" class="btn btn-primary btn-user btn-block"/>
+                        </div>
+					  </form>
+					  <h6 class="m-0 font-weight-bold text-primary">Sensor Status Control</h6>
+					<form class="user" action="{{url_for('start_stop')}}" method="POST">
+						<div class="form-group">
+						<input type="text" class="form-control form-control-user" name="senor_status" placeholder="Enter sensor ID to START/STOP Sensor" required />
+						</div>
+						<div class="form-group">
+                           <input type="submit" value="START/STOP Sensor" class="btn btn-primary btn-user btn-block"/>
+                        </div>
+					</form>
+					</div>
+				 
+				 </div>
+              </div>
+			</div>
+				
+              <div class="row">
+                <div class="col-md-12">
+
+                  <table class="table table-bordered" id="editableTable">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Location</th>
+                        <th>Date Added</th>
+                        <th>Minimum Threshold</th>
+						<th>Maximum Threshold</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+						{% for data in sensor_data %}
+						<tr name="deleteID">
+							{% for entry in data %}
+							<td>{{ entry }}</td>
+							{% endfor %}
+							</tr>
+						{% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="/">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="../static/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="../static/vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="../static/js/demo/chart-area-demo.js"></script>
+  <script src="../static/js/demo/chart-pie-demo.js"></script>
+  <script src="../static/js/demo/chart-bar-demo.js"></script>
+
+
+  <script>
+      (function($, window, document, undefined) {
+        var pluginName = "editable",
+          defaults = {
+            keyboard: true,
+            dblclick: true,
+            button: true,
+            buttonSelector: ".edit",
+            maintainWidth: true,
+            dropdowns: {},
+            edit: function() {},
+            save: function() {},
+            cancel: function() {}
+          };
+
+        function editable(element, options) {
+          this.element = element;
+          this.options = $.extend({}, defaults, options);
+
+          this._defaults = defaults;
+          this._name = pluginName;
+
+          this.init();
+        }
+
+        editable.prototype = {
+          init: function() {
+            this.editing = false;
+
+            if (this.options.dblclick) {
+              $(this.element)
+                .css('cursor', 'pointer')
+                .bind('dblclick', this.toggle.bind(this));
+            }
+
+            if (this.options.button) {
+              $(this.options.buttonSelector, this.element)
+                .bind('click', this.toggle.bind(this));
+            }
+          },
+
+          toggle: function(e) {
+            e.preventDefault();
+
+            this.editing = !this.editing;
+
+            if (this.editing) {
+              this.edit();
+            } else {
+              this.save();
+            }
+          },
+
+          edit: function() {
+            var instance = this,
+              values = {};
+
+            $('td[data-field]', this.element).each(function() {
+              var input,
+                field = $(this).data('field'),
+                value = $(this).text(),
+                width = $(this).width();
+
+              values[field] = value;
+
+              $(this).empty();
+
+              if (instance.options.maintainWidth) {
+                $(this).width(width);
+              }
+
+              if (field in instance.options.dropdowns) {
+                input = $('<select></select>');
+
+                for (var i = 0; i < instance.options.dropdowns[field].length; i++) {
+                  $('<option></option>')
+                    .text(instance.options.dropdowns[field][i])
+                    .appendTo(input);
+                };
+
+                input.val(value)
+                  .data('old-value', value)
+                  .dblclick(instance._captureEvent);
+              } else {
+                input = $('<input type="text" />')
+                  .val(value)
+                  .data('old-value', value)
+                  .dblclick(instance._captureEvent);
+              }
+
+              input.appendTo(this);
+
+              if (instance.options.keyboard) {
+                input.keydown(instance._captureKey.bind(instance));
+              }
+            });
+
+            this.options.edit.bind(this.element)(values);
+          },
+
+          save: function() {
+            var instance = this,
+              values = {};
+
+            $('td[data-field]', this.element).each(function() {
+              var value = $(':input', this).val();
+
+              values[$(this).data('field')] = value;
+
+              $(this).empty()
+                .text(value);
+            });
+
+            this.options.save.bind(this.element)(values);
+          },
+
+          cancel: function() {
+            var instance = this,
+              values = {};
+
+            $('td[data-field]', this.element).each(function() {
+              var value = $(':input', this).data('old-value');
+
+              values[$(this).data('field')] = value;
+
+              $(this).empty()
+                .text(value);
+            });
+
+            this.options.cancel.bind(this.element)(values);
+          },
+
+          _captureEvent: function(e) {
+            e.stopPropagation();
+          },
+
+          _captureKey: function(e) {
+            if (e.which === 13) {
+              this.editing = false;
+              this.save();
+            } else if (e.which === 27) {
+              this.editing = false;
+              this.cancel();
+            }
+          }
+        };
+
+        $.fn[pluginName] = function(options) {
+          return this.each(function() {
+            if (!$.data(this, "plugin_" + pluginName)) {
+              $.data(this, "plugin_" + pluginName,
+                new editable(this, options));
+            }
+          });
+        };
+
+      })(jQuery, window, document);
+
+      editTable();
+
+      //custome editable starts
+      function editTable(){
+
+        $(function() {
+        var pickers = {};
+
+        $('table tr').editable({
+          dropdowns: {
+            type: ['PayPal', 'Cash', 'Card', 'Check'],
+            status:['ON', 'OFF']
+          },
+
+          edit: function(values) {
+            $(".edit i", this)
+              .removeClass('fa-pencil')
+              .addClass('fa-save')
+              .attr('title', 'Save');
+
+            pickers[this] = new Pikaday({
+              field: $("td[data-field=birthday] input", this)[0],
+              format: 'MMM D, YYYY'
+            });
+          },
+          save: function(values) {
+            $(".edit i", this)
+              .removeClass('fa-save')
+              .addClass('fa-pencil')
+              .attr('title', 'Edit');
+
+            if (this in pickers) {
+              pickers[this].destroy();
+              delete pickers[this];
+            }
+          },
+          cancel: function(values) {
+            $(".edit i", this)
+              .removeClass('fa-save')
+              .addClass('fa-pencil')
+              .attr('title', 'Edit');
+
+            if (this in pickers) {
+              pickers[this].destroy();
+              delete pickers[this];
+            }
+          }
+        });
+      });
+
+      }
+
+      $(".add-row").click(function(){
+        $("#editableTable").find("tbody tr:first").before("<tr><td data-field='name'></td><td data-field='name'></td><td data-field='name'></td><td data-field='name'></td><td data-field='name'></td><td><a class='button button-small edit' title='Edit'></a> <a class='button button-small' title='Delete'><i class='fa fa-trash'></i></a></td></tr>");
+        editTable();
+        setTimeout(function(){
+          $("#editableTable").find("tbody tr:first td:last a[title='Edit']").click();
+        }, 200);
+
+        setTimeout(function(){
+          $("#editableTable").find("tbody tr:first td:first input[type='text']").focus();
+            }, 300);
+
+         $("#editableTable").find("a[title='Delete']").unbind('click').click(function(e){
+              $(this).closest("tr").remove();
+          });
+
+      });
+
+      function myFunction() {
+
+      }
+
+      $("#editableTable").find("a[title='Delete']").click(function(e){
+        var x;
+          if (confirm("Are you sure you want to delete entire row?") == true) {
+              $(this).closest("tr").remove();
+          } else {
+
+          }
+      });
+  </script>
+
+</body>
+
+</html>

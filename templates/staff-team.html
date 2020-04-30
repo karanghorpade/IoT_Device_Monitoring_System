@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Staff - Team Tab</title>
+
+  <!-- Custom fonts for this template -->
+  <link href="../static/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../static/css/sb-admin-2.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this page -->
+  <link href="../static/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/">
+        <div class="sidebar-brand-icon rotate-n-15">
+        </div>
+        <div class="sidebar-brand-text mx-3">AG-Machine-Cloud</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/staff">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+{#      <li class="nav-item">#}
+{#        <a class="nav-link" href="/staff-resources">#}
+{#          <span>Resources</span></a>#}
+{#      </li>#}
+
+      <li class="nav-item">
+        <a class="nav-link" href="/staff-servicerequests">
+          <span>Service Requests</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/staff-billing">
+          <span>Contracts/Billing</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/staff-customers">
+          <span>Customers</span></a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="/staff-team">
+          <span>Team</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small"></span>
+                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+              </a>
+              <!-- Dropdown - User Information -->
+              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Profile
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Employee Directory</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Employee ID</th>
+                      <th>Position</th>
+                      <th>Location</th>
+                      <th>Contact Information</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Ross Geller</td>
+                      <td>10450611</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Jose</td>
+                      <td>(408)-657-9385</td>
+                    </tr>
+                    <tr>
+                      <td>Rachel Green</td>
+                      <td>13008021</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-768-2546</td>
+                    </tr>
+                    <tr>
+                      <td>Monica Geller-Bing</td>
+                      <td>20040031</td>
+                      <td>Machine Controller</td>
+                      <td>San Jose</td>
+                      <td>(408)-986-2534</td>
+                    </tr>
+                    <tr>
+                      <td>Chandler Bing</td>
+                      <td>12007041</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-697-4658</td>
+                    </tr>
+                    <tr>
+                      <td>Pheobe Buffay</td>
+                      <td>10301051</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Jose</td>
+                      <td>(408)-098-1234</td>
+                    </tr>
+                    <tr>
+                      <td>Joey Tribbiani</td>
+                      <td>10060361</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Jose</td>
+                      <td>(408)-123-0987</td>
+                    </tr>
+                    <tr>
+                      <td>Elena Gilbert</td>
+                      <td>10040171</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Jose</td>
+                      <td>(408)-869-4557</td>
+                    </tr>
+                    <tr>
+                      <td>Katherine Pierce</td>
+                      <td>10203481</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-256-2359</td>
+                    </tr>
+                    <tr>
+                      <td>Damon Salvatore</td>
+                      <td>10031031</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Jose</td>
+                      <td>(408)-869-2546</td>
+                    </tr>
+                    <tr>
+                      <td>Bonnie Bennett</td>
+                      <td>11020391</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Jose</td>
+                      <td>(408)-768-6739</td>
+                    </tr>
+                    <tr>
+                      <td>Caroline Forbes</td>
+                      <td>11200311</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Jose</td>
+                      <td>(408)-923-2275</td>
+                    </tr>
+                    <tr>
+                      <td>Stefan Salvatore</td>
+                      <td>21300311</td>
+                      <td>Machine Controller</td>
+                      <td>San Jose</td>
+                      <td>(408)-576-6935</td>
+                    </tr>
+                    <tr>
+                      <td>Matt Donovan</td>
+                      <td>10020331</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-734-6785</td>
+                    </tr>
+                    <tr>
+                      <td>Tyler Lockwood</td>
+                      <td>21011311</td>
+                      <td>Machine Controller</td>
+                      <td>San Francisco</td>
+                      <td>(408)-185-1956</td>
+                    </tr>
+                    <tr>
+                      <td>Alaric Saltzman</td>
+                      <td>21010311</td>
+                      <td>Machine Controller</td>
+                      <td>San Jose</td>
+                      <td>(408)-146-2958</td>
+                    </tr>
+                    <tr>
+                      <td>Niklaus Mikaelson</td>
+                      <td>14010361</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-128-1648</td>
+                    </tr>
+                    <tr>
+                      <td>Jeremy Gilbert</td>
+                      <td>10226380</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-134-6739</td>
+                    </tr>
+                    <tr>
+                      <td>Betty Cooper</td>
+                      <td>11038194</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-235-1496</td>
+                    </tr>
+                    <tr>
+                      <td>Archie Andrews</td>
+                      <td>17030009</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Jose</td>
+                      <td>(408)-608-2346</td>
+                    </tr>
+                    <tr>
+                      <td>Veronica Lodge</td>
+                      <td>12327070</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Jose</td>
+                      <td>(408)-275-3967</td>
+                    </tr>
+                    <tr>
+                      <td>Jughead Jones</td>
+                      <td>21099331</td>
+                      <td>Machine Controller</td>
+                      <td>San Jose</td>
+                      <td>(408)-134-3275</td>
+                    </tr>
+                    <tr>
+                      <td>Cheryl Blossom</td>
+                      <td>12550101</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-057-5284</td>
+                    </tr>
+                    <tr>
+                      <td>Serena van der Woodsen</td>
+                      <td>22020281</td>
+                      <td>Machine Controller</td>
+                      <td>San Francisco</td>
+                      <td>(408)-343-4668</td>
+                    </tr>
+                    <tr>
+                      <td>Blair Waldorf</td>
+                      <td>11035355</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Jose</td>
+                      <td>(408)-787-7903</td>
+                    </tr>
+                    <tr>
+                      <td>Nate Archibald</td>
+                      <td>17020435</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-255-0476</td>
+                    </tr>
+                    <tr>
+                      <td>Chuck Bass</td>
+                      <td>11323375</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-364-0586</td>
+                    </tr>
+                    <tr>
+                      <td>Dan Humphrey</td>
+                      <td>21250571</td>
+                      <td>Machine Controller</td>
+                      <td>San Francisco</td>
+                      <td>(408)-124-6779</td>
+                    </tr>
+                    <tr>
+                      <td>Vanessa Abrams</td>
+                      <td>21320390</td>
+                      <td>Machine Controller</td>
+                      <td>San Francisco</td>
+                      <td>(408)-176-0963</td>
+                    </tr>
+                    <tr>
+                      <td>Jenny Humphrey</td>
+                      <td>17040491</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-264-0365</td>
+                    </tr>
+                    <tr>
+                      <td>Mike Wheeler</td>
+                      <td>21220771</td>
+                      <td>Machine Controller</td>
+                      <td>San Jose</td>
+                      <td>(408)-773-0275</td>
+                    </tr>
+                    <tr>
+                      <td>Dustin Henderson</td>
+                      <td>11425301</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-384-1274</td>
+                    </tr>
+                    <tr>
+                      <td>Lucas Sinclair</td>
+                      <td>13420161</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Jose</td>
+                      <td>(408)-284-4448</td>
+                    </tr>
+                    <tr>
+                      <td>Will Byers</td>
+                      <td>11327380</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-445-2743</td>
+                    </tr>
+                    <tr>
+                      <td>Nancy Wheeler</td>
+                      <td>21245503</td>
+                      <td>Machine Controller</td>
+                      <td>San Jose</td>
+                      <td>(408)-325-2058</td>
+                    </tr>
+                    <tr>
+                      <td>Jonathan Byers</td>
+                      <td>21424341</td>
+                      <td>Machine Controller</td>
+                      <td>San Francisco</td>
+                      <td>(408)-263-0875</td>
+                    </tr>
+                    <tr>
+                      <td>Harry Potter</td>
+                      <td>11030573</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-274-9048</td>
+                    </tr>
+                    <tr>
+                      <td>Hermione Granger</td>
+                      <td>11030456</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Jose</td>
+                      <td>(408)-578-4758</td>
+                    </tr>
+                    <tr>
+                      <td>Ron Weasley</td>
+                      <td>12030892</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-119-3758</td>
+                    </tr>
+                    <tr>
+                      <td>Neville Longbottom</td>
+                      <td>21045389</td>
+                      <td>Machine Controller</td>
+                      <td>San Jose</td>
+                      <td>(408)-886-2095</td>
+                    </tr>
+                    <tr>
+                      <td>Luna Lovegood</td>
+                      <td>21369091</td>
+                      <td>Machine Controller</td>
+                      <td>San Jose</td>
+                      <td>(408)-757-9375</td>
+                    </tr>
+                    <tr>
+                      <td>Draco Malfoy</td>
+                      <td>21540932</td>
+                      <td>Machine Controller</td>
+                      <td>San Francisco</td>
+                      <td>(408)-994-4558</td>
+                    </tr>
+                    <tr>
+                      <td>Sirius Black</td>
+                      <td>21097591</td>
+                      <td>Machine Controller</td>
+                      <td>San Jose</td>
+                      <td>(408)-436-0655</td>
+                    </tr>
+                    <tr>
+                      <td>Remus Lupin</td>
+                      <td>15310861</td>
+                      <td>Service Carrier Staff</td>
+                      <td>San Francisco</td>
+                      <td>(408)-274-0475</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="/">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="../static/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="../static/vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="../static/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="../static/js/demo/datatables-demo.js"></script>
+
+</body>
+
+</html>
